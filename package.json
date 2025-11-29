@@ -5,10 +5,10 @@
   "main": "",
   "scripts": {
     "install": "cd client && npm i && cd ../server && npm i",
+    "audit-fix": "cd client && npm audit fix && cd ../server && npm audit fix",
     "start-frontend": "cd client && npm run start",
     "start-backend": "cd server && npm run start"
   },
   "author": "",
   "license": "ISC"
 }
-
