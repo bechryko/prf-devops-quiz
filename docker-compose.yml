@@ -41,6 +41,8 @@ services:
          - '50000:50000'
       volumes:
          - jenkins_home:/var/jenkins_home
+      privileged: true
+      shm_size: '2gb'
 
 networks:
    prfq-network:

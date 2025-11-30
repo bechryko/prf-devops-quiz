@@ -104,7 +104,8 @@
                      "includePaths": ["src/styles"]
                   },
                   "progress": false,
-                  "watch": false
+                  "watch": false,
+                  "karmaConfig": "karma.conf.js"
                }
             }
          }

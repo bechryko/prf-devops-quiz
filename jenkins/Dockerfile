@@ -35,6 +35,29 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/chown" >> /etc/sudoers.d/jenkins
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+  curl wget gnupg apt-transport-https \
+  libasound2 libatk-bridge2.0-0 libgtk-3-0 \
+  libxss1 libnss3 libxshmfence1 libgbm1 \
+  libxdamage1 libxcomposite1 libxcursor1 \
+  libxi6 libxtst6 libxrandr2 libatk1.0-0 \
+  fontconfig locales
+
+# Install Google Chrome (modern method, no apt-key)
+RUN mkdir -p /etc/apt/keyrings && \
+    wget -q -O /etc/apt/keyrings/google-chrome.gpg https://dl.google.com/linux/linux_signing_key.pub && \
+    echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main" \
+      > /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && \
+    apt-get install -y google-chrome-stable
+
+# Increase /dev/shm (Chrome needs more shared memory)
+RUN mkdir -p /dev/shm && chmod 1777 /dev/shm
+
+# Set custom environment identifier for Jenkins during tests
+ENV PRFQ_JENKINS=true
+
 # Switch to jenkins user
 USER jenkins
 
