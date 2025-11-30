@@ -1,13 +1,15 @@
 {
   "name": "prf-quiz",
   "version": "0.0.0",
-  "description": "",
-  "main": "",
   "scripts": {
     "install": "cd client && npm i && cd ../server && npm i",
-    "start-frontend": "cd client && npm run start",
-    "start-backend": "cd server && npm run start"
-  },
-  "author": "",
-  "license": "ISC"
+    "local-frontend": "cd client && npm run start",
+    "local-backend": "cd server && npm run start",
+    "local-mongo-build": "docker build -t prfq_local_mongo -f Dockerfile-MongoDB .",
+    "local-mongo-start": "docker run -it -p 6000:27017 --name prfq_local_mongo -d prfq_local_mongo",
+    "local-mongo": "npm run local-mongo-build && npm run local-mongo-start",
+    "start": "docker compose up --build --no-attach mongo",
+    "prestart": "npm run cleanup",
+    "cleanup": "docker compose down"
+  }
 }

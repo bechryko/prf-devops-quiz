@@ -10,6 +10,8 @@ import { provideMockData } from './mock-data';
 import { configurePassport } from './passport/passport';
 import { Logger } from './utility';
 
+Logger.success('Application started running');
+
 const app = express();
 const port = 5000;
 const dbUrl = 'mongodb://localhost:6000';

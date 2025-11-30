@@ -1,10 +1,11 @@
 FROM node:22
 
 WORKDIR /app
-COPY server/package.json .
-COPY server/package-lock.json .
+COPY package.json .
+COPY package-lock.json .
 RUN npm install
-COPY server/ .
+COPY . .
 RUN npm run build
 
+CMD node ./build/main.js
 # TODO
