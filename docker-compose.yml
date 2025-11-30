@@ -1,0 +1,37 @@
+services:
+   mongo:
+      build:
+         context: .
+         dockerfile: Dockerfile-MongoDB
+      networks:
+         - prfq-network
+      ports:
+         - 6000:27017
+
+   server:
+      build:
+         context: server
+         dockerfile: ./Dockerfile
+      networks:
+         - prfq-network
+      command: # TODO
+      tty: true
+      stdin_open: true
+      depends_on:
+         - mongo
+
+   client:
+      build:
+         context: client
+         dockerfile: ./Dockerfile
+      networks:
+         - prfq-network
+      command: #TODO
+      tty: true
+      stdin_open: true
+      depends_on:
+         - server
+
+networks:
+   prfq-network:
+      driver: bridge
