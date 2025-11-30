@@ -10,6 +10,7 @@
    "htmlWhitespaceSensitivity": "ignore",
    "singleAttributePerLine": true,
    "bracketSameLine": true,
+   "endOfLine": "crlf",
    "overrides": [
       {
          "files": ["*.json"],

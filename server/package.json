@@ -5,7 +5,10 @@
   "scripts": {
     "build": "cd node_modules/typescript/bin && tsc -p ../../..",
     "start": "node build/main.js",
-    "prestart": "npm run build"
+    "prestart": "npm run build",
+    "prettier": "prettier \"src/**/*.ts\" --write",
+    "lint": "prettier --check \"src/**/*.ts\" --config ../.prettierrc.json",
+    "code-format": "npm run prettier"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -28,6 +31,7 @@
     "@types/express-session": "^1.18.1",
     "@types/passport": "^1.0.17",
     "@types/passport-local": "^1.0.38",
+    "prettier": "^3.7.3",
     "typescript": "^5.8.3"
   }
 }

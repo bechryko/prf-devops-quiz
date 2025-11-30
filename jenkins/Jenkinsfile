@@ -23,6 +23,12 @@ pipeline {
          }
       }
 
+      stage('Lint Code') {
+         steps {
+            sh 'npm run lint'
+         }
+      }
+
       stage('Build Frontend') {
          steps {
             sh 'cd client && npm run build'
