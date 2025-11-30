@@ -23,7 +23,19 @@ pipeline {
          }
       }
 
-      stage('Test Source') {
+      stage('Build Frontend') {
+         steps {
+            sh 'cd client && npm run build'
+         }
+      }
+
+      stage('Build Backend') {
+         steps {
+            sh 'cd server && npm run build'
+         }
+      }
+
+      stage('Run Tests') {
          steps {
             sh 'npm run test'
          }
