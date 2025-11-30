@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "prettier": "prettier \"src/**/*.ts\" --write",
-    "eslint": "",
-    "code-format": "npm run prettier && npm run eslint",
+    "lint": "prettier --check \"src/**/*.ts\" --config ../.prettierrc.json",
+    "code-format": "npm run prettier",
     "test": "ng test"
   },
   "private": true,
@@ -49,3 +49,4 @@
     "typescript-eslint": "^8.48.0"
   }
 }
+

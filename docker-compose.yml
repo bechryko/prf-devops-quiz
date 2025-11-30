@@ -32,6 +32,21 @@ services:
       depends_on:
          - server
 
+   jenkins:
+      build:
+         context: 'jenkins'
+         dockerfile: './Dockerfile'
+      ports:
+         - '8080:8080'
+         - '50000:50000'
+      volumes:
+         - jenkins_home:/var/jenkins_home
+      privileged: true
+      shm_size: '2gb'
+
 networks:
    prfq-network:
       driver: bridge
+
+volumes:
+   jenkins_home:

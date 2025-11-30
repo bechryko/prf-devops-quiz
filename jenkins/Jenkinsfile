@@ -1,0 +1,65 @@
+pipeline {
+   agent any
+
+   tools {
+      nodejs 'NodeJS 22.19.0'
+   }
+
+   environment {
+      GITHUB_REPO = 'https://github.com/bechryko/prf-devops-quiz.git'
+      BRANCH = 'devops-main'
+   }
+
+   stages {
+      stage('Checkout') {
+         steps {
+            git branch: env.BRANCH, url: env.GITHUB_REPO
+         }
+      }
+
+      stage('Install Dependencies') {
+         steps {
+            sh 'npm run install'
+         }
+      }
+
+      /*stage('Lint Code') {
+         steps {
+            sh 'npm run lint'
+         }
+      }*/
+
+      stage('Build Frontend') {
+         steps {
+            sh 'cd client && npm run build'
+         }
+      }
+
+      stage('Build Backend') {
+         steps {
+            sh 'cd server && npm run build'
+         }
+      }
+
+      stage('Run Tests') {
+         steps {
+            sh 'npm run test'
+         }
+      }
+
+      stage('Cleanup') {
+         steps {
+            deleteDir()
+         }
+      }
+   }
+
+   post {
+      success {
+         echo 'Pipeline finished successfully!'
+      }
+      failure {
+         echo 'Pipeline failed!'
+      }
+   }
+}

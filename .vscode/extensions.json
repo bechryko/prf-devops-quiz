@@ -1,15 +1,14 @@
 {
-  "recommendations": [
-    "angular.ng-template",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "streetsidesoftware.code-spell-checker",
-    "jayfong.generate-index",
-    "sainoba.px-to-rem",
-    "gruntfuggly.todo-tree",
-    "usernamehw.errorlens",
-    "pkief.material-icon-theme",
-    "oderwat.indent-rainbow"
-  ]
+   "recommendations": [
+      "angular.ng-template",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "streetsidesoftware.code-spell-checker",
+      "jayfong.generate-index",
+      "sainoba.px-to-rem",
+      "gruntfuggly.todo-tree",
+      "usernamehw.errorlens",
+      "pkief.material-icon-theme",
+      "oderwat.indent-rainbow"
+   ]
 }
-
