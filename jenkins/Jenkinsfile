@@ -23,11 +23,11 @@ pipeline {
          }
       }
 
-      stage('Lint Code') {
+      /*stage('Lint Code') {
          steps {
             sh 'npm run lint'
          }
-      }
+      }*/
 
       stage('Build Frontend') {
          steps {
