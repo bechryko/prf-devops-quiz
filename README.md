@@ -33,3 +33,11 @@ Az adatbázisnak egy MongoDB példánynak kell lennie, amely adatokat tud szolg�
 -  Monitor & Feedback (10 pont)
 -  Tool-ok: legalább 5 használata (Git, Docker nem számít)
 -  Readme a projekthez (működésről)
+
+### Indítás
+
+A projektet a root mappából lehet elindítani az `npm run start` paranccsal. Ez létrehozza a szükséges Docker image-eket (frontend, backend, adatbázis, Jenkins), és futtatja őket.
+
+### Jenkins
+
+A Jenkins a `localhost:8080` címen érhető el. Az alapértelmezett plugin-ok telepítése elegendő lesz. Szükséges konfigurálni egy 22.19.0-s NodeJS verziót, ezután pedig egy új job-ot létrehozni a `jenkins` mappában található `Jenkinsfile` alapján. Ezután a job futtatható.
