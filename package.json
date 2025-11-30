@@ -10,6 +10,7 @@
     "local-mongo": "npm run local-mongo-build && npm run local-mongo-start",
     "start": "docker compose up --build --no-attach mongo",
     "prestart": "npm run cleanup",
-    "cleanup": "docker compose down"
+    "cleanup": "docker compose down",
+    "test": "cd client && npm run test"
   }
 }

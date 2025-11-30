@@ -1,21 +1,27 @@
 {
-  "printWidth": 120,
-  "useTabs": false,
-  "tabWidth": 3,
-  "semi": true,
-  "bracketSpacing": true,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "arrowParens": "avoid",
-  "htmlWhitespaceSensitivity": "ignore",
-  "singleAttributePerLine": true,
-  "bracketSameLine": true,
-  "overrides": [
-    {
-      "files": ["*.json"],
-      "options": {
-        "tabWidth": 2
+   "printWidth": 120,
+   "useTabs": false,
+   "tabWidth": 3,
+   "semi": true,
+   "bracketSpacing": true,
+   "singleQuote": true,
+   "trailingComma": "none",
+   "arrowParens": "avoid",
+   "htmlWhitespaceSensitivity": "ignore",
+   "singleAttributePerLine": true,
+   "bracketSameLine": true,
+   "overrides": [
+      {
+         "files": ["*.json"],
+         "options": {
+            "tabWidth": 3
+         }
+      },
+      {
+         "files": ["package*.json"],
+         "options": {
+            "tabWidth": 2
+         }
       }
-    }
-  ]
+   ]
 }
