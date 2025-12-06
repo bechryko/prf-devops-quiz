@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: prf-devops-quiz-mongo
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: prf-devops-quiz-mongo
+   template:
+      metadata:
+         labels:
+            app: prf-devops-quiz-mongo
+      spec:
+         containers:
+            - name: prf-devops-quiz-mongo
+              image: prf-devops-quiz-mongo
+              imagePullPolicy: Never
+              ports:
+                 - containerPort: 6000
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: prf-devops-quiz-mongo
+spec:
+   selector:
+      app: prf-devops-quiz-mongo
+   ports:
+      - port: 6000
+        targetPort: 6000

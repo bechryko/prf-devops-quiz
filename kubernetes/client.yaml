@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: prf-devops-quiz-client
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: prf-devops-quiz-client
+   template:
+      metadata:
+         labels:
+            app: prf-devops-quiz-client
+      spec:
+         containers:
+            - name: prf-devops-quiz-client
+              image: prf-devops-quiz-client
+              imagePullPolicy: Never
