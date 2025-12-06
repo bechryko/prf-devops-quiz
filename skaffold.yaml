@@ -1,0 +1,19 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+metadata:
+   name: prf-devops-quiz
+build:
+   local:
+      push: false
+   artifacts:
+      - image: server
+        context: ./server
+      - image: client
+        context: ./client
+   tagPolicy:
+      envTemplate:
+         template: 'latest'
+manifests:
+   rawYaml: [kubernetes/client.yaml, kubernetes/server.yaml, kubernetes/mongo.yaml, kubernetes/proxy.yaml]
+deploy:
+   kubectl: {}

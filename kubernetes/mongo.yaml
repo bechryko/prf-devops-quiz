@@ -17,7 +17,7 @@ spec:
               image: prf-devops-quiz-mongo
               imagePullPolicy: Never
               ports:
-                 - containerPort: 6000
+                 - containerPort: 27017
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +27,5 @@ spec:
    selector:
       app: prf-devops-quiz-mongo
    ports:
-      - port: 6000
+      - port: 27017
         targetPort: 6000

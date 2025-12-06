@@ -14,7 +14,7 @@
    "files.eol": "\r\n",
    "files.insertFinalNewline": true,
    "prettier.endOfLine": "crlf",
-   "cSpell.words": ["prfq", "endindex", "kreuzwerker", "tfstate"],
+   "cSpell.words": ["prfq", "endindex", "kreuzwerker", "tfstate", "configmap"],
    "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
    }

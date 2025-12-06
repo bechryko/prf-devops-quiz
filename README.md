@@ -60,3 +60,7 @@ Az alkalmazás ezután elérhető a `localhost` címen.
 A Jenkins most a `localhost:8080` címen érhető el. Az alapértelmezett plugin-okon kívül a NodeJS plugin-t kell telepíteni. Szükséges konfigurálni egy 22.19.0-s NodeJS verziót "NodeJS 22.19.0" néven, ezután pedig egy új job-ot létrehozni ("Pipeline" típussal) a `jenkins` mappában található `Jenkinsfile` alapján. Ezután a job futtatható.
 
 Az `admin-password.txt` fájlban érdemes eltárolni az első indításkor a konzolra kiírt admin jelszót, hogy később be lehessen vele jelentkezni. Az eredetileg benne lévő jelszó nem használható, csak a fejlesztés megkönnyítése érdekében van ott.
+
+### Indítás (Kubernetes)
+
+Kubernetes és Skaffold használatával az `npm run start-kubernetes` paranccsal lehet elindítani az alkalmazást. Ehhez telepítve kell, hogy legyen minikube és skaffold az eszközre.
