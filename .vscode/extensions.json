@@ -9,6 +9,7 @@
       "gruntfuggly.todo-tree",
       "usernamehw.errorlens",
       "pkief.material-icon-theme",
-      "oderwat.indent-rainbow"
+      "oderwat.indent-rainbow",
+      "4ops.terraform"
    ]
 }

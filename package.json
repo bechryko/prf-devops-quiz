@@ -14,6 +14,7 @@
     "start-kubernetes": "npm run build-images && sh kubernetes/start-pods.sh",
     "prestart-kubernetes": "sh kubernetes/start-minikube.sh",
     "build-images": "docker compose build",
+    "start-terraform": "cd terraform && terraform init -upgrade && terraform plan && terraform apply",
     "test": "cd client && npm run test",
     "code-format": "cd client && npm run code-format && cd ../server && npm run code-format",
     "lint": "cd client && npm run lint && cd ../server && npm run lint"
