@@ -1,8 +1,9 @@
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'environments/environment';
 
 export class HttpRequestUtils {
    public static getUrl(endpoint: string): string {
-      return `http://localhost:5000/app/${endpoint}`;
+      return `${environment.serverUrl}/${endpoint}`;
    }
 
    public static getHeaders(): HttpHeaders {

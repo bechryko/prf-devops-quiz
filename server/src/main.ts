@@ -56,7 +56,7 @@ app.use(passport.session());
 
 configurePassport(passport);
 
-app.use('/app', configureEndpoints(passport, express.Router()));
+app.use('/api', configureEndpoints(passport, express.Router()));
 
 app.listen(port, () => {
    Logger.success('Server is listening on port', port.toString());
