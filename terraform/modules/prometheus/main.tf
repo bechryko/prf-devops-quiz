@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "docker_image" "prometheus" {
-   name = "custom-prometheus:latest"
+   name = "prf-devops-quiz-prometheus"
 
    build {
       context = path.module
@@ -17,7 +17,7 @@ resource "docker_image" "prometheus" {
 }
 
 resource "docker_container" "prometheus" {
-   name  = "prometheus"
+   name  = "prf-devops-quiz-prometheus"
    image = docker_image.prometheus.image_id
 
    ports {

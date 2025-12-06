@@ -34,6 +34,13 @@ module "proxy" {
 module "prometheus" {
    source = "./modules/prometheus"
    network_name = docker_network.prf-devops-quiz_network.name
+   port = 9090
+}
+
+module "grafana" {
+   source = "./modules/grafana"
+   network_name = docker_network.prf-devops-quiz_network.name
+   prometheus_url = "http://prf-devops-quiz-prometheus:${module.prometheus.port}"
 }
 
 resource "docker_network" "prf-devops-quiz_network" {
