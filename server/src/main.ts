@@ -14,7 +14,7 @@ Logger.success('Application started running');
 
 const app = express();
 const port = 5000;
-const dbUrl = 'mongodb://localhost:6000';
+const dbUrl = 'mongodb://mongo:27017';
 
 mongoose
    .connect(dbUrl)
