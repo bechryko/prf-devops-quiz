@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 import expressSession from 'express-session';
+import { configureMetrics } from 'metrics';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import { configureEndpoints } from './endpoints';
@@ -63,3 +64,5 @@ app.use('/api', configureEndpoints(passport, express.Router()));
 app.listen(port, '0.0.0.0', () => {
    Logger.success('Server is listening on port', port.toString());
 });
+
+configureMetrics();

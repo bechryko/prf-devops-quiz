@@ -31,6 +31,11 @@ module "proxy" {
    depends_on_client = module.client
 }
 
+module "prometheus" {
+   source = "./modules/prometheus"
+   network_name = docker_network.prf-devops-quiz_network.name
+}
+
 resource "docker_network" "prf-devops-quiz_network" {
    name = "prf-devops-quiz_network"
 }

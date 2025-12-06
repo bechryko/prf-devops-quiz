@@ -4,6 +4,7 @@ import { Logger, registerEndpoints } from '../utility';
 import { AuthService } from './auth-service';
 import { GameService } from './game-service';
 import { LeaderboardService } from './leaderboard-service';
+import { MetricsService } from './metrics-service';
 import { QuizService } from './quiz-service';
 
 export function configureEndpoints(passport: PassportStatic, router: Router): Router {
@@ -13,10 +14,11 @@ export function configureEndpoints(passport: PassportStatic, router: Router): Ro
    const leaderboardService = new LeaderboardService();
    const quizService = new QuizService(leaderboardService);
    const gameService = new GameService(quizService);
+   const metricsService = new MetricsService();
 
    Logger.info('Registering endpoints');
 
-   const providers = [authService, leaderboardService, quizService, gameService];
+   const providers = [authService, leaderboardService, quizService, gameService, metricsService];
    registerEndpoints(router, providers);
 
    Logger.success('All endpoints registered');

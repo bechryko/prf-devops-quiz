@@ -48,6 +48,7 @@ Az adatbázisnak egy MongoDB példánynak kell lennie, amely adatokat tud szolg�
 -  Nginx
 -  Kubernetes
 -  Terraform
+-  Prometheus
 
 ### Indítás (docker-compose)
 
@@ -68,5 +69,7 @@ Kubernetes és Skaffold használatával az `npm run start-kubernetes` paranccsal
 ### Indítás (Terraform)
 
 Terraform használatával az `npm run start-terraform` paranccsal lehet elindítani az alkalmazást. Ehhez telepítve kell, hogy legyen a terraform az eszközre.
+
+Indítás után az alkalmazás elérhető a `localhost` címen, a Prometheus pedig a `localhost:9090` címen.
 
 Leállításhoz a `terraform destroy` parancsot kell használni, majd az `npm run stop-containers` parancsot, hogy következő elindításkor ne ütközzenek a Docker container nevek.
