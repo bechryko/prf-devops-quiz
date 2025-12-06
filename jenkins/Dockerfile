@@ -1,3 +1,4 @@
+# cSpell:disable
 FROM jenkins/jenkins:lts
 
 USER root
@@ -33,6 +34,7 @@ RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/chown" >> /etc/sudoers.d/jenkins
 
 # Set up entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN sed -i 's/\r$//' /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Install dependencies
