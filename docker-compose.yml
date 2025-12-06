@@ -14,7 +14,6 @@ services:
          dockerfile: ./Dockerfile
       networks:
          - prfq-network
-      command: # TODO
       tty: true
       stdin_open: true
       depends_on:
@@ -26,11 +25,23 @@ services:
          dockerfile: ./Dockerfile
       networks:
          - prfq-network
-      command: #TODO
       tty: true
       stdin_open: true
       depends_on:
          - server
+
+   proxy:
+      image: nginx:stable-alpine
+      container_name: prf-devops-quiz-proxy
+      volumes:
+         - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      ports:
+         - 80:80
+      depends_on:
+         - client
+         - server
+      networks:
+         - prfq-network
 
    jenkins:
       build:

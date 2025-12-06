@@ -10,6 +10,7 @@
       "usernamehw.errorlens",
       "pkief.material-icon-theme",
       "oderwat.indent-rainbow",
-      "4ops.terraform"
+      "4ops.terraform",
+      "ahmadalli.vscode-nginx-conf"
    ]
 }
