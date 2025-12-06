@@ -64,3 +64,9 @@ Az `admin-password.txt` fájlban érdemes eltárolni az első indításkor a kon
 ### Indítás (Kubernetes)
 
 Kubernetes és Skaffold használatával az `npm run start-kubernetes` paranccsal lehet elindítani az alkalmazást. Ehhez telepítve kell, hogy legyen minikube és skaffold az eszközre.
+
+### Indítás (Terraform)
+
+Terraform használatával az `npm run start-terraform` paranccsal lehet elindítani az alkalmazást. Ehhez telepítve kell, hogy legyen a terraform az eszközre.
+
+Leállításhoz a `terraform destroy` parancsot kell használni, majd az `npm run stop-containers` parancsot, hogy következő elindításkor ne ütközzenek a Docker container nevek.

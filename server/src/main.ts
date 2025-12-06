@@ -14,7 +14,9 @@ Logger.success('Application started running');
 
 const app = express();
 const port = 5000;
-const dbUrl = 'mongodb://mongo:27017';
+const dbUrl = process.env['MONGO_URL'] || 'mongodb://mongo:27017';
+
+Logger.info(`Try to connect to ${dbUrl}`);
 
 mongoose
    .connect(dbUrl)
@@ -58,6 +60,6 @@ configurePassport(passport);
 
 app.use('/api', configureEndpoints(passport, express.Router()));
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
    Logger.success('Server is listening on port', port.toString());
 });

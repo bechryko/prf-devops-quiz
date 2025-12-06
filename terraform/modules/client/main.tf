@@ -23,4 +23,8 @@ resource "docker_container" "client" {
       internal = var.port
       external = var.port
    }
+
+   networks_advanced {
+      name = var.network_name
+   }
 }

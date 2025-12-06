@@ -8,12 +8,7 @@ terraform {
 }
 
 resource "docker_image" "mongo" {
-   name = "prf-devops-quiz-mongo"
-
-   build {
-      context = "${path.cwd}/.."
-      dockerfile = "Dockerfile-MongoDB"
-   }
+   name = "mongo:7"
 }
 
 resource "docker_container" "mongo" {
@@ -23,5 +18,9 @@ resource "docker_container" "mongo" {
    ports {
       internal = var.port
       external = var.port
+   }
+
+   networks_advanced {
+      name = var.network_name
    }
 }

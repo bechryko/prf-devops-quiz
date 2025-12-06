@@ -16,6 +16,7 @@
     "cleanup-kubernetes": "sh kubernetes/cleanup.sh",
     "build-images": "docker compose build --no-cache",
     "start-terraform": "cd terraform && terraform init -upgrade && terraform plan && terraform apply",
+    "stop-containers": "docker stop $(docker ps -q --filter 'name=prf-devops-quiz-')",
     "test": "cd client && npm run test",
     "code-format": "cd client && npm run code-format && cd ../server && npm run code-format",
     "lint": "cd client && npm run lint && cd ../server && npm run lint"
