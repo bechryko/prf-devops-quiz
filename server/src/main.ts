@@ -14,7 +14,7 @@ Logger.success('Application started running');
 
 const app = express();
 const port = 5000;
-const dbUrl = process.env['MONGO_URL'] || 'mongodb://mongo:27017';
+const dbUrl = process.env['MONGO_URL'] || 'mongodb://prf-devops-quiz-mongo:27017';
 
 Logger.info(`Try to connect to ${dbUrl}`);
 

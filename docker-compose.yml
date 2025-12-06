@@ -1,5 +1,5 @@
 services:
-   mongo:
+   prf-devops-quiz-mongo:
       build:
          context: .
          dockerfile: Dockerfile-MongoDB
@@ -8,7 +8,7 @@ services:
       ports:
          - 6000:27017
 
-   server:
+   prf-devops-quiz-server:
       build:
          context: server
          dockerfile: ./Dockerfile
@@ -17,9 +17,9 @@ services:
       tty: true
       stdin_open: true
       depends_on:
-         - mongo
+         - prf-devops-quiz-mongo
 
-   client:
+   prf-devops-quiz-client:
       build:
          context: client
          dockerfile: ./Dockerfile
@@ -28,9 +28,9 @@ services:
       tty: true
       stdin_open: true
       depends_on:
-         - server
+         - prf-devops-quiz-server
 
-   proxy:
+   prf-devops-quiz-proxy:
       image: nginx:stable-alpine
       container_name: prf-devops-quiz-proxy
       volumes:
@@ -38,12 +38,12 @@ services:
       ports:
          - 80:80
       depends_on:
-         - client
-         - server
+         - prf-devops-quiz-client
+         - prf-devops-quiz-server
       networks:
          - prfq-network
 
-   jenkins:
+   prf-devops-quiz-jenkins:
       build:
          context: 'jenkins'
          dockerfile: './Dockerfile'
